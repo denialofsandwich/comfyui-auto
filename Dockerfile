@@ -2,6 +2,9 @@ ARG CUDA_VERSION="12.6.3"
 ARG UBUNTU_VERSION="24.04"
 ARG DOCKER_FROM=nvidia/cuda:$CUDA_VERSION-cudnn-devel-ubuntu$UBUNTU_VERSION
 
+# Base NVidia CUDA Ubuntu image
+FROM $DOCKER_FROM AS base
+
 # Install Python plus openssh, which is our minimum set of required packages.
 RUN apt-get update -y && \
     apt-get install -y python3 python3-pip python3-venv && \
