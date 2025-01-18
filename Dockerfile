@@ -8,7 +8,7 @@ FROM $DOCKER_FROM AS base
 # Install Python plus openssh, which is our minimum set of required packages.
 RUN apt-get update -y && \
     apt-get install -y python3 python3-pip python3-venv && \
-    apt-get install -y --no-install-recommends openssh-server openssh-client git git-lfs wget vim zip unzip curl lsof htop s3fs && \
+    apt-get install -y --no-install-recommends openssh-server openssh-client git git-lfs wget vim zip unzip curl lsof htop && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -32,9 +32,14 @@ RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/WASasquatch/was-node-suite-comfyui.git && \
     /ComfyUI/venv/bin/pip3 install -r was-node-suite-comfyui/requirements.txt && \
     git clone https://github.com/chflame163/ComfyUI_LayerStyle.git && \
-    /ComfyUI/venv/bin/pip3 install -r ComfyUI_LayerStyle/requirements.txt && \
-    git clone https://github.com/Gourieff/comfyui-reactor-node.git && \
-    /ComfyUI/venv/bin/pip3 install -r comfyui-reactor-node/requirements.txt
+    /ComfyUI/venv/bin/pip3 install -r ComfyUI_LayerStyle/requirements.txt
+    #git clone https://github.com/Gourieff/comfyui-reactor-node.git && \
+    #/ComfyUI/venv/bin/pip3 install -r comfyui-reactor-node/requirements.txt
+
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip" && \
+    cd /tmp && \
+    unzip /tmp/awscliv2.zip && \
+    /tmp/aws/install
 
 COPY --chmod=755 start.sh /start.sh
 COPY --chmod=755 extra_model_paths.yaml /ComfyUI/extra_model_paths.yaml

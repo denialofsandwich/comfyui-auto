@@ -3,7 +3,7 @@
 # ENV vars needed:
 # PUBLIC_KEY: Automatically set by runpod
 # AWS_ACCESS_KEY_ID
-# AWS_ACCESS_KEY_KEY
+# AWS_SECRET_ACCESS_KEY
 # S3_BUCKET_NAME
 # S3_URL
 
@@ -21,16 +21,23 @@ fi
 
 if [[ "$S3_BUCKET_NAME" ]]; then
   ln -s /data/comfyui_user /ComfyUI/user
+  mkdir -p /data/comfyui_user ~/.aws
 
-  mkdir -p /tmp/s3mount_cache
-  s3fs $S3_BUCKET_NAME:/ /data \
-    -o url=$S3_URL \
-    -o use_path_request_style \
-    -o use_cache=/tmp/s3mount_cache \
-    -o stat_cache_expire=300 \
-    -o enable_noobj_cache \
-    -o multipart_size=52 \
-    -o parallel_count=5
+  cat >~/.aws/credentials <<EOM
+[default]
+aws_access_key_id = $AWS_ACCESS_KEY_ID
+aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
+EOM
+
+  cat >~/.s3default <<EOM
+export S3_BUCKET_NAME="$S3_BUCKET_NAME"
+export S3_URL="$S3_URL"
+EOM
+
+  cat >~/.bashrc <<EOM
+source ~/.s3default
+EOM
+
 fi
 
 /ComfyUI/venv/bin/python3 /ComfyUI/main.py
