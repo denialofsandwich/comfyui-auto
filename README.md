@@ -1,4 +1,6 @@
 # ComfyUI-auto
+IMPORTANT: Right now unfinished and WIP
+
 ComfyUI docker image with some extras
 
 My idea is to have a docker image, which contains everything I need to directly run it in runpod.io.

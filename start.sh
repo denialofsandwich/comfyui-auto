@@ -2,10 +2,8 @@
 
 # ENV vars needed:
 # PUBLIC_KEY: Automatically set by runpod
-# AWS_ACCESS_KEY_ID
-# AWS_SECRET_ACCESS_KEY
-# S3_BUCKET_NAME
-# S3_URL
+# HUGGINGFACE_TOKEN: Needed for Flux
+# CIVITAI_TOKEN: Required for downloading all civitai models
 
 echo "pod started"
 
@@ -19,25 +17,13 @@ if [[ "$PUBLIC_KEY" ]]; then
   service ssh start
 fi
 
-if [[ "$S3_BUCKET_NAME" ]]; then
-  ln -s /data/comfyui_user /ComfyUI/user
-  mkdir -p /data/comfyui_user ~/.aws
-
-  cat >~/.aws/credentials <<EOM
-[default]
-aws_access_key_id = $AWS_ACCESS_KEY_ID
-aws_secret_access_key = $AWS_SECRET_ACCESS_KEY
+cat >~/.credentials <<EOM
+export HUGGINGFACE_TOKEN="$HUGGINGFACE_TOKEN"
+export CIVITAI_TOKEN="$CIVITAI_TOKEN"
 EOM
 
-  cat >~/.s3default <<EOM
-export S3_BUCKET_NAME="$S3_BUCKET_NAME"
-export S3_URL="$S3_URL"
+cat >~/.bashrc <<EOM
+source ~/.credentials
 EOM
-
-  cat >~/.bashrc <<EOM
-source ~/.s3default
-EOM
-
-fi
 
 /ComfyUI/venv/bin/python3 /ComfyUI/main.py
