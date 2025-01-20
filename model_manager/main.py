@@ -30,7 +30,7 @@ MODEL_DATA = {
         "flux/": {
             "1-dev-fp8.safetensors": {
                 "type": "huggingface",
-                "auth": True,
+                "auth": False,
                 "url": "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors?download=true",
                 "size": "17.2GB",
             },
@@ -71,6 +71,20 @@ MODEL_DATA = {
                     "url": "https://huggingface.co/Adapter/t2iadapter/resolve/main/openpose_sdxl_1.0/diffusion_pytorch_model.safetensors?download=true",
                     "size": "150MB",
                 },
+            },
+        },
+        "flux/": {
+            "canny-v3.safetensors": {
+                "type": "huggingface",
+                "auth": False,
+                "url": "https://huggingface.co/XLabs-AI/flux-controlnet-collections/resolve/main/flux-canny-controlnet-v3.safetensors?download=true",
+                "size": "1.49GB",
+            },
+            "depth-v3.safetensors": {
+                "type": "huggingface",
+                "auth": False,
+                "url": "https://huggingface.co/XLabs-AI/flux-controlnet-collections/resolve/main/flux-depth-controlnet-v3.safetensors?download=true",
+                "size": "1.49GB",
             },
         },
     },
