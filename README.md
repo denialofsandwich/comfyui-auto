@@ -1,5 +1,4 @@
 # ComfyUI-auto
-IMPORTANT: Right now unfinished and WIP
 
 ComfyUI docker image with some extras
 
@@ -8,3 +7,6 @@ Theoretically it should run in other container hosts as well, since there is no 
 
 If you want to run it yourself and make some modifications, you can just fork this repo,
 make your changes and the included github action will build your modified image automatically if you create a release
+
+Models need to be downloaded, after the Container is started. For that you need to open a session and run `model_manager`.
+It's an interactive tool to manage the downloaded models.
