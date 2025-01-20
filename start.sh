@@ -24,6 +24,7 @@ EOM
 
 cat >~/.bashrc <<EOM
 source ~/.credentials
+alias model_manager='/ComfyUI/venv/bin/python3 /ComfyUI/model_manager/main.py --output-dir /data/models'
 EOM
 
 /ComfyUI/venv/bin/python3 /ComfyUI/main.py

@@ -43,6 +43,9 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/aws
 
 COPY --chmod=755 start.sh /start.sh
 COPY --chmod=755 extra_model_paths.yaml /ComfyUI/extra_model_paths.yaml
+COPY --chmod=755 model_manager/ /ComfyUI/model_manager/
+
+RUN /ComfyUI/venv/bin/pip3 install -r /ComfyUI/model_manager/requirements.txt
 
 WORKDIR /workdir
 EXPOSE 7860
