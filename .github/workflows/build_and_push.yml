@@ -1,7 +1,6 @@
 name: Build and Push Docker Image
 
 on:
-  push:
   release:
     types: [published]
 
@@ -40,5 +39,6 @@ jobs:
           platforms: linux/amd64
           tags: |
             ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:${{ github.ref_name }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
