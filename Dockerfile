@@ -38,11 +38,6 @@ RUN cd /ComfyUI/custom_nodes && \
     #git clone https://github.com/Gourieff/comfyui-reactor-node.git && \
     #/ComfyUI/venv/bin/pip3 install -r comfyui-reactor-node/requirements.txt
 
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip" && \
-    cd /tmp && \
-    unzip /tmp/awscliv2.zip && \
-    /tmp/aws/install
-
 COPY --chmod=755 start.sh /start.sh
 COPY --chmod=755 extra_model_paths.yaml /ComfyUI/extra_model_paths.yaml
 COPY --chmod=755 model_manager/ /ComfyUI/model_manager/
