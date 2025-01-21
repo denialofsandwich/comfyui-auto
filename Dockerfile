@@ -25,6 +25,8 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git && \
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/ltdrdata/ComfyUI-Manager.git && \
     git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git && \
+    git clone https://github.com/crystian/ComfyUI-Crystools.git && \
+    /ComfyUI/venv/bin/pip3 install -r ComfyUI-Crystools/requirements.txt && \
     git clone https://github.com/kijai/ComfyUI-KJNodes.git && \
     /ComfyUI/venv/bin/pip3 install -r ComfyUI-KJNodes/requirements.txt && \
     git clone https://github.com/yolain/ComfyUI-Easy-Use.git && \
