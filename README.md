@@ -30,3 +30,10 @@ You can access ComfyUI like this: `ssh root@<ip> -p <image-ssh-port> -L:8188:loc
 
 Once you are connected you need to download models. I provide a tool to download them easy.
 Just run the `model_manager` command, and you can select the models you need and download them.
+
+## References
+
+Here are some repos, I've used as a reference.
+
+- <https://github.com/ValyrianTech/ComfyUI_with_Flux>
+- <https://github.com/comfyanonymous/ComfyUI>
