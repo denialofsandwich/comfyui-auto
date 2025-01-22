@@ -28,6 +28,8 @@ The Volume Disk contains all models and user settings.
 
 You can access ComfyUI like this: `ssh root@<ip> -p <image-ssh-port> -L:8188:localhost:8188`. You can then access ComfyUI over `localhost:8188`.
 
+The also is a wrapper (`runpod_connect.sh`) to automatically connect to the instance and up and download the user settings and workflows afterwards. It requires `runpodctl` and `rsync` to be installed to work properly.
+
 Once you are connected you need to download models. I provide a tool to download them easy.
 Just run the `model_manager` command, and you can select the models you need and download them.
 

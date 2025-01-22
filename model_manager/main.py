@@ -1,94 +1,25 @@
-from typing import Any
-from textual.app import App, ComposeResult
-from textual.widgets import Footer, Header, Tree
-from textual.widgets.tree import TreeNode
-import requests
+import json
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from typing import Any
+
+import requests
+import rich
+import typer
 from rich.progress import (
-    Progress,
     BarColumn,
     DownloadColumn,
+    Progress,
     TextColumn,
     TimeRemainingColumn,
     TransferSpeedColumn,
 )
-from pathlib import Path
-import rich
-import typer
+from textual.app import App, ComposeResult
+from textual.widgets import Footer, Header, Tree
+from textual.widgets.tree import TreeNode
 
 OUTPUT_DIR = Path("output")
-# TODO: The size should be determined automatically
-MODEL_DATA = {
-    "checkpoints/": {
-        "sdxl/": {
-            "juggernaut-xl_11.safetensors": {
-                "type": "civitai",
-                "url": "https://civitai.com/api/download/models/782002?type=Model&format=SafeTensor&size=full&fp=fp16",
-                "size": "6.6GB",
-            },
-        },
-        "flux/": {
-            "1-dev-fp8.safetensors": {
-                "type": "huggingface",
-                "auth": False,
-                "url": "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors?download=true",
-                "size": "17.2GB",
-            },
-        },
-    },
-    "controlnet/": {
-        "sdxl/": {
-            "controlnet/": {
-                "qr-monster-v1.safetensors": {
-                    "type": "huggingface",
-                    "auth": False,
-                    "url": "https://huggingface.co/monster-labs/control_v1p_sdxl_qrcode_monster/resolve/main/diffusion_pytorch_model.safetensors?download=true",
-                    "size": "5.0GB",
-                },
-            },
-            "t2i/": {
-                "canny-fp16.safetensors": {
-                    "type": "huggingface",
-                    "auth": False,
-                    "url": "https://huggingface.co/TencentARC/t2i-adapter-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true",
-                    "size": "150MB",
-                },
-                "depth-fp16.safetensors": {
-                    "type": "huggingface",
-                    "auth": False,
-                    "url": "https://huggingface.co/TencentARC/t2i-adapter-depth-midas-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true",
-                    "size": "150MB",
-                },
-                "sketch-fp16.safetensors": {
-                    "type": "huggingface",
-                    "auth": False,
-                    "url": "https://huggingface.co/TencentARC/t2i-adapter-sketch-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true",
-                    "size": "150MB",
-                },
-                "openpose-fp32.safetensors": {
-                    "type": "huggingface",
-                    "auth": False,
-                    "url": "https://huggingface.co/Adapter/t2iadapter/resolve/main/openpose_sdxl_1.0/diffusion_pytorch_model.safetensors?download=true",
-                    "size": "150MB",
-                },
-            },
-        },
-        "flux/": {
-            "canny-v3.safetensors": {
-                "type": "huggingface",
-                "auth": False,
-                "url": "https://huggingface.co/XLabs-AI/flux-controlnet-collections/resolve/main/flux-canny-controlnet-v3.safetensors?download=true",
-                "size": "1.49GB",
-            },
-            "depth-v3.safetensors": {
-                "type": "huggingface",
-                "auth": False,
-                "url": "https://huggingface.co/XLabs-AI/flux-controlnet-collections/resolve/main/flux-depth-controlnet-v3.safetensors?download=true",
-                "size": "1.49GB",
-            },
-        },
-    },
-}
+MODEL_DATA = json.loads((Path(__file__).parent / "models.json").read_text())
 
 
 def init_model_data(models: dict[str, Any], output_dir: Path, subpath: str = ""):
@@ -229,8 +160,6 @@ class ModelTree(Tree):
 class ModelManagerApp(App):
     """A Textual app to manage model downloads"""
 
-    CSS_PATH = "main.tcss"
-
     BINDINGS = [
         ("s", "select_model", "Select model"),
         ("d", "start_download", "Start download"),
@@ -330,6 +259,17 @@ def delete_files(file_list, output_dir: Path):
 
 
 def main(output_dir: Path = OUTPUT_DIR):
+    global OUTPUT_DIR
+
+    rich.print("[yellow]Downloading new model list...")
+    new_model_data = requests.get(
+        "https://raw.githubusercontent.com/denialofsandwich/comfyui-auto/refs/heads/main/model_manager/models.json"
+    )
+    if new_model_data:
+        rich.print("[green]New list downloaded")
+        OUTPUT_DIR = new_model_data.json()
+    else:
+        rich.print("[red]Can't download newest list")
 
     init_model_data(MODEL_DATA, output_dir)
     app = ModelManagerApp()
