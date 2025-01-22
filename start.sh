@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# ENV vars needed:
-# PUBLIC_KEY: Automatically set by runpod
-# Optional Token:
-# HUGGINGFACE_TOKEN: Needed for Flux
-# CIVITAI_TOKEN: Required for downloading all civitai models
-
 echo "pod started"
 
 if [[ "$PUBLIC_KEY" ]]; then
