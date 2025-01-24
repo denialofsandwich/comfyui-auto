@@ -259,7 +259,7 @@ def delete_files(file_list, output_dir: Path):
 
 
 def main(output_dir: Path = OUTPUT_DIR):
-    global OUTPUT_DIR
+    global MODEL_DATA
 
     rich.print("[yellow]Downloading new model list...")
     new_model_data = requests.get(
@@ -267,7 +267,7 @@ def main(output_dir: Path = OUTPUT_DIR):
     )
     if new_model_data:
         rich.print("[green]New list downloaded")
-        OUTPUT_DIR = new_model_data.json()
+        MODEL_DATA = new_model_data.json()
     else:
         rich.print("[red]Can't download newest list")
 
