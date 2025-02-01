@@ -1,5 +1,6 @@
 import json
 from concurrent.futures import ThreadPoolExecutor
+import os
 from pathlib import Path
 from typing import Any
 
@@ -210,9 +211,13 @@ def download_file_with_progress(
     filename = output_dir / item["filename"]
     filename.parent.mkdir(parents=True, exist_ok=True)
     url = item["url"]
+    headers = {}
+
+    if "auth" in item:
+        headers["Authorization"] = f"Bearer {os.environ.get(item['auth'])}"
 
     progress.start_task(task_id)
-    with requests.get(url, stream=True) as response:
+    with requests.get(url, stream=True, headers=headers) as response:
         response.raise_for_status()
         total_size = int(response.headers.get("content-length", 0))
         progress.update(task_id, total=total_size)
@@ -258,13 +263,15 @@ def delete_files(file_list, output_dir: Path):
         (output_dir / item["filename"]).unlink()
 
 
-def main(output_dir: Path = OUTPUT_DIR):
+def main(output_dir: Path = OUTPUT_DIR, download_list: bool = True):
     global MODEL_DATA
 
-    rich.print("[yellow]Downloading new model list...")
-    new_model_data = requests.get(
-        "https://raw.githubusercontent.com/denialofsandwich/comfyui-auto/refs/heads/main/model_manager/models.json"
-    )
+    new_model_data = None
+    if download_list:
+        rich.print("[yellow]Downloading new model list...")
+        new_model_data = requests.get(
+            "https://raw.githubusercontent.com/denialofsandwich/comfyui-auto/refs/heads/main/model_manager/models.json"
+        )
     if new_model_data:
         rich.print("[green]New list downloaded")
         MODEL_DATA = new_model_data.json()

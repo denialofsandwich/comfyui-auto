@@ -37,8 +37,7 @@ RUN cd /ComfyUI/custom_nodes && \
     /ComfyUI/venv/bin/pip3 install -r ComfyUI_LayerStyle/requirements.txt && \
     git clone https://github.com/storyicon/comfyui_segment_anything && \
     /ComfyUI/venv/bin/pip3 install -r comfyui_segment_anything/requirements.txt && \
-    git clone https://github.com/Acly/comfyui-inpaint-nodes && \
-    /ComfyUI/venv/bin/pip3 install -r comfyui-inpaint-nodes/requirements.txt
+    git clone https://github.com/Acly/comfyui-inpaint-nodes
     #git clone https://github.com/Gourieff/comfyui-reactor-node.git && \
     #/ComfyUI/venv/bin/pip3 install -r comfyui-reactor-node/requirements.txt
 

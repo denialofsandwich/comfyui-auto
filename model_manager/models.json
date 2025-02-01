@@ -1,15 +1,56 @@
 {
   "checkpoints/": {
+    "flux/": {
+      "1-dev-fp8.safetensors": {
+        "url": "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors?download=true",
+        "size": "17.2GB"
+      }
+    },
     "sdxl/": {
+      "animagine-xl_v3.1.safetensors": {
+        "url": "https://civitai.com/api/download/models/403131?type=Model&format=SafeTensor&size=full&fp=fp16",
+        "size": "6.46GB"
+      },
+      "cosxl_edit.safetensors": {
+        "url": "https://huggingface.co/stabilityai/cosxl/resolve/main/cosxl_edit.safetensors?download=true",
+        "size": "6.94GB",
+        "auth": "HUGGINGFACE_TOKEN"
+      },
+      "dreamshaper-xl_v1.safetensors": {
+        "url": "https://civitai.com/api/download/models/126688?type=Model&format=SafeTensor&size=full&fp=fp16",
+        "size": "6.46GB"
+      },
       "juggernaut-xl_11.safetensors": {
         "url": "https://civitai.com/api/download/models/782002?type=Model&format=SafeTensor&size=full&fp=fp16",
         "size": "6.6GB"
       }
     },
+    "sd15/": {
+      "dreamshaper-v8.safetensors": {
+        "url": "https://civitai.com/api/download/models/128713?type=Model&format=SafeTensor&size=pruned&fp=fp16",
+        "size": "1.99GB"
+      }
+    },
+    "ltx/": {
+      "video-2b-v0.9.1.safetensors": {
+        "url": "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltx-video-2b-v0.9.1.safetensors?download=true",
+        "size": "5.72GB"
+      }
+    }
+  },
+  "clip/": {
     "flux/": {
-      "1-dev-fp8.safetensors": {
-        "url": "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors?download=true",
-        "size": "17.2GB"
+      "clip_l.safetensors": {
+        "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true",
+        "size": "246MB"
+      },
+      "t5xxl_fp16.safetensors": {
+        "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors?download=true",
+        "size": "9.79GB"
+      },
+      "t5xxl_fp8_e4m3fn.safetensors": {
+        "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true",
+        "size": "4.89GB"
       }
     }
   },
@@ -51,6 +92,18 @@
       }
     }
   },
+  "diffusion_models/": {
+    "flux1-dev-fp16.safetensors": {
+      "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors?download=true",
+      "size": "32.8GB",
+      "auth": "HUGGINGFACE_TOKEN"
+    },
+    "flux1-dev-fp8.safetensors": {
+      "url": "https://huggingface.co/XLabs-AI/flux-dev-fp8/resolve/main/flux-dev-fp8.safetensors?download=true",
+      "size": "11.9GB",
+      "auth": "HUGGINGFACE_TOKEN"
+    }
+  },
   "grounding-dino/": {
     "groundingdino_swint_ogc.pth": {
       "url": "https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swint_ogc.pth",
@@ -69,6 +122,30 @@
       "size": "1KB"
     }
   },
+  "inpaint/": {
+    "fooocus_inpaint_head.pth": {
+      "url": "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/fooocus_inpaint_head.pth?download=true",
+      "size": "52.6KB"
+    },
+    "inpaint_v26.fooocus.patch": {
+      "url": "https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint_v26.fooocus.patch?download=true",
+      "size": "1.32GB"
+    }
+  },
+  "loras/": {
+    "sd15/": {
+      "detail-tweaker_v1.safetensors": {
+        "url": "https://huggingface.co/OedoSoldier/detail-tweaker-lora/resolve/main/add_detail.safetensors?download=true",
+        "size": "36.11MB"
+      }
+    },
+    "sdxl/": {
+      "detail-tweaker_v1.safetensors": {
+        "url": "https://civitai.com/api/download/models/135867?type=Model&format=SafeTensor",
+        "size": "217.87MB"
+      }
+    }
+  },
   "sams/": {
     "sam_vit_h_4b8939.pth": {
       "url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth",
@@ -81,6 +158,13 @@
     "sam_vit_b_01ec64.pth": {
       "url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth",
       "size": "375MB"
+    }
+  },
+  "vae/": {
+    "flux.safetensors": {
+      "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/vae/diffusion_pytorch_model.safetensors?download=true",
+      "size": "168MB",
+      "auth": "HUGGINGFACE_TOKEN"
     }
   }
 }
