@@ -9,7 +9,8 @@
     "sdxl/": {
       "animagine-xl_v3.1.safetensors": {
         "url": "https://civitai.com/api/download/models/403131?type=Model&format=SafeTensor&size=full&fp=fp16",
-        "size": "6.46GB"
+        "size": "6.46GB",
+        "auth": "CIVITAI_TOKEN"
       },
       "cosxl_edit.safetensors": {
         "url": "https://huggingface.co/stabilityai/cosxl/resolve/main/cosxl_edit.safetensors?download=true",
