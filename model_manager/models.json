@@ -95,13 +95,18 @@
   "diffusion_models/": {
     "flux1-dev-fp16.safetensors": {
       "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors?download=true",
-      "size": "32.8GB",
+      "size": "23.8GB",
       "auth": "HUGGINGFACE_TOKEN"
     },
     "flux1-dev-fp8.safetensors": {
       "url": "https://huggingface.co/XLabs-AI/flux-dev-fp8/resolve/main/flux-dev-fp8.safetensors?download=true",
       "size": "11.9GB",
       "auth": "HUGGINGFACE_TOKEN"
+    },
+    "pixelwave1-dev03-fp16.safetensors": {
+      "url": "https://civitai.com/api/download/models/992642?type=Model&format=SafeTensor&size=full&fp=bf16",
+      "size": "23.8GB",
+      "auth": "CIVITAI_TOKEN"
     }
   },
   "grounding-dino/": {
