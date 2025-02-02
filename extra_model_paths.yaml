@@ -7,7 +7,7 @@ comfyui:
   clip_vision: models/clip_vision/
   configs: models/configs/
   controlnet: models/controlnet/
-  diffusion_models: models/unet
+  diffusion_models: models/diffusion_models/
   embeddings: models/embeddings/
   loras: models/loras/
   upscale_models: models/upscale_models/
