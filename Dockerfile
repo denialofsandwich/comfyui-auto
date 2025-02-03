@@ -1,6 +1,6 @@
 ARG CUDA_VERSION="12.6.3"
 ARG UBUNTU_VERSION="24.04"
-ARG DOCKER_FROM=nvidia/cuda:$CUDA_VERSION-cudnn-devel-ubuntu$UBUNTU_VERSION
+ARG DOCKER_FROM=nvidia/cuda:$CUDA_VERSION-base-ubuntu$UBUNTU_VERSION
 
 # Base NVidia CUDA Ubuntu image
 FROM $DOCKER_FROM AS base
