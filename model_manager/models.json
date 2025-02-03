@@ -104,6 +104,11 @@
       "size": "11.9GB",
       "auth": "HUGGINGFACE_TOKEN"
     },
+    "flux1-fill-dev-fp16.safetensors": {
+      "url": "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/resolve/main/flux1-fill-dev.safetensors?download=true",
+      "size": "23.8GB",
+      "auth": "HUGGINGFACE_TOKEN"
+    },
     "pixelwave1-dev03-fp16.safetensors": {
       "url": "https://civitai.com/api/download/models/992642?type=Model&format=SafeTensor&size=full&fp=bf16",
       "size": "23.8GB",
