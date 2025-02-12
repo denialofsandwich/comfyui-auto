@@ -2,3 +2,4 @@ requests
 textual
 rich
 typer
+pyyaml

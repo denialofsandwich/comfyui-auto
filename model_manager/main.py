@@ -1,12 +1,13 @@
-import json
-from concurrent.futures import ThreadPoolExecutor
+import math
 import os
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any
 
 import requests
 import rich
 import typer
+import yaml
 from rich.progress import (
     BarColumn,
     DownloadColumn,
@@ -18,9 +19,6 @@ from rich.progress import (
 from textual.app import App, ComposeResult
 from textual.widgets import Footer, Header, Tree
 from textual.widgets.tree import TreeNode
-
-OUTPUT_DIR = Path("output")
-MODEL_DATA = json.loads((Path(__file__).parent / "models.json").read_text())
 
 
 def init_model_data(models: dict[str, Any], output_dir: Path, subpath: str = ""):
@@ -161,6 +159,11 @@ class ModelTree(Tree):
 class ModelManagerApp(App):
     """A Textual app to manage model downloads"""
 
+    def __init__(self, model_data, *args, **kwargs):
+        self.model_data = model_data
+
+        super().__init__(*args, **kwargs)
+
     BINDINGS = [
         ("s", "select_model", "Select model"),
         ("d", "start_download", "Start download"),
@@ -171,7 +174,7 @@ class ModelManagerApp(App):
 
         yield Header()
         yield Footer()
-        yield ModelTree.from_model_dict("Models", id="tree", models=MODEL_DATA)
+        yield ModelTree.from_model_dict("Models", id="tree", models=self.model_data)
 
     def action_select_model(self) -> None:
         """Selects the current item in the tree."""
@@ -263,29 +266,29 @@ def delete_files(file_list, output_dir: Path):
         (output_dir / item["filename"]).unlink()
 
 
-def main(output_dir: Path = OUTPUT_DIR, download_list: bool = True):
-    global MODEL_DATA
-
+def main(output_dir: Path = Path("output"), download_list: bool = True):
     new_model_data = None
     if download_list:
         rich.print("[yellow]Downloading new model list...")
         new_model_data = requests.get(
             "https://raw.githubusercontent.com/denialofsandwich/comfyui-auto/refs/heads/main/model_manager/models.json"
         )
+
     if new_model_data:
         rich.print("[green]New list downloaded")
-        MODEL_DATA = new_model_data.json()
+        model_data = yaml.safe_load(new_model_data.text)
     else:
-        rich.print("[red]Can't download newest list")
+        rich.print("[red]Can't download newest list. Using local one.")
+        model_data = yaml.safe_load((Path(__file__).parent / "models.yml").read_text())
 
-    init_model_data(MODEL_DATA, output_dir)
-    app = ModelManagerApp()
+    init_model_data(model_data, output_dir)
+    app = ModelManagerApp(model_data=model_data)
     result = app.run()
 
     if result != "download":
         return
 
-    new, obsolete = get_changes(MODEL_DATA)
+    new, obsolete = get_changes(model_data)
 
     if obsolete:
         rich.print("[yellow]Deleting old models...")
