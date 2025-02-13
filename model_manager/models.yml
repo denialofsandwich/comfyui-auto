@@ -28,6 +28,12 @@ checkpoints/:
       url: >-
         https://civitai.com/api/download/models/128713?type=Model&format=SafeTensor&size=pruned&fp=fp16
       size: 1.99GB
+  stable_audio_open/:
+    v1.safetensors:
+      url: >-
+        https://huggingface.co/stabilityai/stable-audio-open-1.0/resolve/main/model.safetensors?download=true
+      size: 4.85GB
+      auth: HUGGINGFACE_TOKEN
   ltx/:
     video-2b-v0.9.1.safetensors:
       url: >-
@@ -47,6 +53,11 @@ clip/:
       url: >-
         https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true
       size: 4.89GB
+    t5_base.safetensors:
+      url: >-
+        https://huggingface.co/stabilityai/stable-audio-open-1.0/resolve/main/text_encoder/model.safetensors?download=true
+      size: 439MB
+      auth: HUGGINGFACE_TOKEN
 controlnet/:
   sdxl/:
     controlnet/:
