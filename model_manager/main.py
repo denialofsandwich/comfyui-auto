@@ -271,7 +271,7 @@ def main(output_dir: Path = Path("output"), download_list: bool = True):
     if download_list:
         rich.print("[yellow]Downloading new model list...")
         new_model_data = requests.get(
-            "https://raw.githubusercontent.com/denialofsandwich/comfyui-auto/refs/heads/main/model_manager/models.json"
+            "https://raw.githubusercontent.com/denialofsandwich/comfyui-auto/refs/heads/main/model_manager/models.yml"
         )
 
     if new_model_data:
