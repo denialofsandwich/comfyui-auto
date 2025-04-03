@@ -154,6 +154,14 @@ loras/:
       url: >-
         https://civitai.com/api/download/models/135867?type=Model&format=SafeTensor
       size: 217.87MB
+    ghibli-style-redmond-v2.safetensors:
+      url: >-
+        https://huggingface.co/artificialguybr/StudioGhibli.Redmond-V2/resolve/main/StudioGhibli.Redmond-StdGBRRedmAF-StudioGhibli.safetensors?download=true
+      size: 228MB
+    ghibli-style-kappaneuro.safetensors:
+      url: >-
+        https://huggingface.co/KappaNeuro/studio-ghibli-style/resolve/main/Studio%20Ghibli%20Style.safetensors?download=true
+      size: 228MB
 sams/:
   sam_vit_h_4b8939.pth:
     url: "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth"
