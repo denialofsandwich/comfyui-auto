@@ -22,6 +22,7 @@ source ~/.credentials
 alias model_manager='/ComfyUI/venv/bin/python3 /ComfyUI/model_manager/main.py --output-dir /data/models'
 EOM
 
-mkdir -p /data/comfyui_user /data/models
+mkdir -p /data/models
+test -d /data/comfyui_user || cp -r /ComfyUI/default_userdata/ /data/comfyui_user
 ln -s /data/comfyui_user /ComfyUI/user
 /ComfyUI/venv/bin/python3 /ComfyUI/main.py

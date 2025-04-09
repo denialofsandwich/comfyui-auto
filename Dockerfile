@@ -44,6 +44,7 @@ RUN cd /ComfyUI/custom_nodes && \
 COPY --chmod=755 start.sh /start.sh
 COPY --chmod=755 extra_model_paths.yaml /ComfyUI/extra_model_paths.yaml
 COPY --chmod=755 model_manager/ /ComfyUI/model_manager/
+COPY --chmod=755 comfyui_user_default/ /ComfyUI/default_userdata/
 
 RUN /ComfyUI/venv/bin/pip3 install -r /ComfyUI/model_manager/requirements.txt
 
