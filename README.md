@@ -2,6 +2,13 @@
 
 A ComfyUI Docker image with preinstalled tools.
 
+## Notice
+This branch is also containing all resources for my Beyond Dall-E talk at PyConDE 2025.
+The Workflow files and images are located under `/comfyui_user_default/workflows` and `/comfyui_user_default/input`.
+I reduced the list of models in the model manager to only contain the models I used during the presentation.
+
+I also created a [Runpod template](https://runpod.io/console/deploy?template=ry0man5whx&ref=codsib8t).
+
 ## Idea
 My idea is to have a ComfyUI docker image, which contains everything I need to directly run it in [runpod.io](https://www.runpod.io).
 It is designed to be deployed fast even if you delete the volumes, to minimize the cost.
@@ -11,7 +18,7 @@ If you want to run a customized version yourself, just fork the repo. A new imag
 ## How to use
 
 You need to create a runpod template and set the following:
-- **Container Image:** `ghcr.io/denialofsandwich/comfyui-auto:latest` (or the most recent versioned tag)
+- **Container Image:** `ghcr.io/denialofsandwich/comfyui-auto:v0.1.16-pyconde25`
 - **Compute:** Nvidia GPU
 - **Type:** Pod
 - **Container Disk Size:** ~8GB
