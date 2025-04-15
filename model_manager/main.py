@@ -266,20 +266,8 @@ def delete_files(file_list, output_dir: Path):
         (output_dir / item["filename"]).unlink()
 
 
-def main(output_dir: Path = Path("output"), download_list: bool = True):
-    new_model_data = None
-    if download_list:
-        rich.print("[yellow]Downloading new model list...")
-        new_model_data = requests.get(
-            "https://raw.githubusercontent.com/denialofsandwich/comfyui-auto/refs/heads/main/model_manager/models.yml"
-        )
-
-    if new_model_data:
-        rich.print("[green]New list downloaded")
-        model_data = yaml.safe_load(new_model_data.text)
-    else:
-        rich.print("[red]Can't download newest list. Using local one.")
-        model_data = yaml.safe_load((Path(__file__).parent / "models.yml").read_text())
+def main(output_dir: Path = Path("output")):
+    model_data = yaml.safe_load((Path(__file__).parent / "models.yml").read_text())
 
     init_model_data(model_data, output_dir)
     app = ModelManagerApp(model_data=model_data)

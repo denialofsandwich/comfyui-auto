@@ -1,64 +1,9 @@
 checkpoints/:
-  flux/:
-    1-dev-fp8.safetensors:
-      url: >-
-        https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors?download=true
-      size: 17.2GB
   sdxl/:
-    animagine-xl_v3.1.safetensors:
-      url: >-
-        https://civitai.com/api/download/models/403131?type=Model&format=SafeTensor&size=full&fp=fp16
-      size: 6.46GB
-      auth: CIVITAI_TOKEN
-    cosxl_edit.safetensors:
-      url: >-
-        https://huggingface.co/stabilityai/cosxl/resolve/main/cosxl_edit.safetensors?download=true
-      size: 6.94GB
-      auth: HUGGINGFACE_TOKEN
-    dreamshaper-xl_v1.safetensors:
-      url: >-
-        https://civitai.com/api/download/models/126688?type=Model&format=SafeTensor&size=full&fp=fp16
-      size: 6.46GB
     juggernaut-xl_11.safetensors:
       url: >-
         https://civitai.com/api/download/models/782002?type=Model&format=SafeTensor&size=full&fp=fp16
       size: 6.6GB
-  sd15/:
-    dreamshaper-v8.safetensors:
-      url: >-
-        https://civitai.com/api/download/models/128713?type=Model&format=SafeTensor&size=pruned&fp=fp16
-      size: 1.99GB
-  stable_audio_open/:
-    v1.safetensors:
-      url: >-
-        https://huggingface.co/stabilityai/stable-audio-open-1.0/resolve/main/model.safetensors?download=true
-      size: 4.85GB
-      auth: HUGGINGFACE_TOKEN
-  ltx/:
-    video-2b-v0.9.1.safetensors:
-      url: >-
-        https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltx-video-2b-v0.9.1.safetensors?download=true
-      size: 5.72GB
-clip/:
-  flux/:
-    clip_l.safetensors:
-      url: >-
-        https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true
-      size: 246MB
-    t5xxl_fp16.safetensors:
-      url: >-
-        https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors?download=true
-      size: 9.79GB
-    t5xxl_fp8_e4m3fn.safetensors:
-      url: >-
-        https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true
-      size: 4.89GB
-  stable_audio_open/:
-    t5_base.safetensors:
-      url: >-
-        https://huggingface.co/stabilityai/stable-audio-open-1.0/resolve/main/text_encoder/model.safetensors?download=true
-      size: 439MB
-      auth: HUGGINGFACE_TOKEN
 controlnet/:
   sdxl/:
     controlnet/:
@@ -71,65 +16,11 @@ controlnet/:
         url: >-
           https://huggingface.co/TencentARC/t2i-adapter-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
         size: 150MB
-      depth-fp16.safetensors:
-        url: >-
-          https://huggingface.co/TencentARC/t2i-adapter-depth-midas-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
-        size: 150MB
-      sketch-fp16.safetensors:
-        url: >-
-          https://huggingface.co/TencentARC/t2i-adapter-sketch-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors?download=true
-        size: 150MB
-      openpose-fp32.safetensors:
-        url: >-
-          https://huggingface.co/Adapter/t2iadapter/resolve/main/openpose_sdxl_1.0/diffusion_pytorch_model.safetensors?download=true
-        size: 150MB
-  flux/:
-    canny-v3.safetensors:
-      url: >-
-        https://huggingface.co/XLabs-AI/flux-controlnet-collections/resolve/main/flux-canny-controlnet-v3.safetensors?download=true
-      size: 1.49GB
-    depth-v3.safetensors:
-      url: >-
-        https://huggingface.co/XLabs-AI/flux-controlnet-collections/resolve/main/flux-depth-controlnet-v3.safetensors?download=true
-      size: 1.49GB
-diffusion_models/:
-  flux1-dev-fp16.safetensors:
-    url: >-
-      https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors?download=true
-    size: 23.8GB
-    auth: HUGGINGFACE_TOKEN
-  flux1-dev-fp8.safetensors:
-    url: >-
-      https://huggingface.co/XLabs-AI/flux-dev-fp8/resolve/main/flux-dev-fp8.safetensors?download=true
-    size: 11.9GB
-    auth: HUGGINGFACE_TOKEN
-  flux1-fill-dev-fp16.safetensors:
-    url: >-
-      https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/resolve/main/flux1-fill-dev.safetensors?download=true
-    size: 23.8GB
-    auth: HUGGINGFACE_TOKEN
-  pixelwave1-dev03-fp16.safetensors:
-    url: >-
-      https://civitai.com/api/download/models/992642?type=Model&format=SafeTensor&size=full&fp=bf16
-    size: 23.8GB
-    auth: CIVITAI_TOKEN
-  mochi_preview_bf16.safetensors:
-    url: >-
-      https://huggingface.co/Comfy-Org/mochi_preview_repackaged/resolve/main/split_files/diffusion_models/mochi_preview_bf16.safetensors?download=true
-    size: 20.1GB
 grounding-dino/:
-  groundingdino_swint_ogc.pth:
-    url: >-
-      https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swint_ogc.pth
-    size: 694MB
   groundingdino_swinb_cogcoor.pth:
     url: >-
       https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/groundingdino_swinb_cogcoor.pth
     size: 938MB
-  GroundingDINO_SwinT_OGC.cfg.py:
-    url: >-
-      https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_SwinT_OGC.cfg.py
-    size: 1KB
   GroundingDINO_SwinB.cfg.py:
     url: >-
       https://huggingface.co/ShilongLiu/GroundingDINO/resolve/main/GroundingDINO_SwinB.cfg.py
@@ -144,41 +35,12 @@ inpaint/:
       https://huggingface.co/lllyasviel/fooocus_inpaint/resolve/main/inpaint_v26.fooocus.patch?download=true
     size: 1.32GB
 loras/:
-  sd15/:
-    detail-tweaker_v1.safetensors:
-      url: >-
-        https://huggingface.co/OedoSoldier/detail-tweaker-lora/resolve/main/add_detail.safetensors?download=true
-      size: 36.11MB
   sdxl/:
-    detail-tweaker_v1.safetensors:
-      url: >-
-        https://civitai.com/api/download/models/135867?type=Model&format=SafeTensor
-      size: 217.87MB
     ghibli-style-redmond-v2.safetensors:
       url: >-
         https://huggingface.co/artificialguybr/StudioGhibli.Redmond-V2/resolve/main/StudioGhibli.Redmond-StdGBRRedmAF-StudioGhibli.safetensors?download=true
-      size: 228MB
-    ghibli-style-kappaneuro.safetensors:
-      url: >-
-        https://huggingface.co/KappaNeuro/studio-ghibli-style/resolve/main/Studio%20Ghibli%20Style.safetensors?download=true
       size: 228MB
 sams/:
   sam_vit_h_4b8939.pth:
     url: "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth"
     size: 2.56GB
-  sam_vit_l_0b3195.pth:
-    url: "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_l_0b3195.pth"
-    size: 1.25GB
-  sam_vit_b_01ec64.pth:
-    url: "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth"
-    size: 375MB
-vae/:
-  flux.safetensors:
-    url: >-
-      https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/vae/diffusion_pytorch_model.safetensors?download=true
-    size: 168MB
-    auth: HUGGINGFACE_TOKEN
-  mochi.safetensors:
-    url: >-
-      https://huggingface.co/Comfy-Org/mochi_preview_repackaged/resolve/main/split_files/vae/mochi_vae.safetensors?download=true
-    size: 920MB
