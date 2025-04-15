@@ -24,5 +24,6 @@ EOM
 
 mkdir -p /data/models
 test -d /data/comfyui_user || cp -r /ComfyUI/default_userdata/ /data/comfyui_user
+cp -r /data/comfyui_user/default/input/* /ComfyUI/input
 ln -s /data/comfyui_user /ComfyUI/user
 /ComfyUI/venv/bin/python3 /ComfyUI/main.py
