@@ -53,6 +53,23 @@ clip/:
       url: >-
         https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors?download=true
       size: 4.89GB
+  hidream/:
+    clip_g_hidream.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/clip_g_hidream.safetensors?download=true
+      size: 1.39GB
+    clip_l_hidream.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/clip_l_hidream.safetensors?download=true
+      size: 248MB
+    llama_3.1_8b_instruct_fp8_scaled.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/llama_3.1_8b_instruct_fp8_scaled.safetensors?download=true
+      size: 9.08GB
+    t5xxl_fp8_e4m3fn_scaled.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/t5xxl_fp8_e4m3fn_scaled.safetensors?download=true
+      size: 5.16GB
   stable_audio_open/:
     t5_base.safetensors:
       url: >-
@@ -93,26 +110,52 @@ controlnet/:
         https://huggingface.co/XLabs-AI/flux-controlnet-collections/resolve/main/flux-depth-controlnet-v3.safetensors?download=true
       size: 1.49GB
 diffusion_models/:
-  flux1-dev-fp16.safetensors:
-    url: >-
-      https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors?download=true
-    size: 23.8GB
-    auth: HUGGINGFACE_TOKEN
-  flux1-dev-fp8.safetensors:
-    url: >-
-      https://huggingface.co/XLabs-AI/flux-dev-fp8/resolve/main/flux-dev-fp8.safetensors?download=true
-    size: 11.9GB
-    auth: HUGGINGFACE_TOKEN
-  flux1-fill-dev-fp16.safetensors:
-    url: >-
-      https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/resolve/main/flux1-fill-dev.safetensors?download=true
-    size: 23.8GB
-    auth: HUGGINGFACE_TOKEN
-  pixelwave1-dev03-fp16.safetensors:
-    url: >-
-      https://civitai.com/api/download/models/992642?type=Model&format=SafeTensor&size=full&fp=bf16
-    size: 23.8GB
-    auth: CIVITAI_TOKEN
+  flux1/:
+    dev-fp16.safetensors:
+      url: >-
+        https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors?download=true
+      size: 23.8GB
+      auth: HUGGINGFACE_TOKEN
+    dev-fp8.safetensors:
+      url: >-
+        https://huggingface.co/XLabs-AI/flux-dev-fp8/resolve/main/flux-dev-fp8.safetensors?download=true
+      size: 11.9GB
+      auth: HUGGINGFACE_TOKEN
+    fill-dev-fp16.safetensors:
+      url: >-
+        https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/resolve/main/flux1-fill-dev.safetensors?download=true
+      size: 23.8GB
+      auth: HUGGINGFACE_TOKEN
+    pixelwave1-dev03-fp16.safetensors:
+      url: >-
+        https://civitai.com/api/download/models/992642?type=Model&format=SafeTensor&size=full&fp=bf16
+      size: 23.8GB
+      auth: CIVITAI_TOKEN
+  hi-dream/:
+    i1_dev_bf16.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/diffusion_models/hidream_i1_dev_bf16.safetensors?download=true
+      size: 34.2GB
+    i1_dev_fp8.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/diffusion_models/hidream_i1_dev_fp8.safetensors?download=true
+      size: 17.1GB
+    i1_fast_bf16.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/diffusion_models/hidream_i1_fast_bf16.safetensors?download=true
+      size: 34.2GB
+    i1_fast_fp8.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/diffusion_models/hidream_i1_fast_fp8.safetensors?download=true
+      size: 17.1GB
+    i1_full_fp16.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/diffusion_models/hidream_i1_full_fp16.safetensors?download=true
+      size: 34.2GB
+    i1_full_fp8.safetensors:
+      url: >-
+        https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/diffusion_models/hidream_i1_full_fp8.safetensors?download=true
+      size: 17.1GB
   mochi_preview_bf16.safetensors:
     url: >-
       https://huggingface.co/Comfy-Org/mochi_preview_repackaged/resolve/main/split_files/diffusion_models/mochi_preview_bf16.safetensors?download=true
@@ -178,6 +221,10 @@ vae/:
       https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/vae/diffusion_pytorch_model.safetensors?download=true
     size: 168MB
     auth: HUGGINGFACE_TOKEN
+  hidream.safetensors:
+    url: >-
+      https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/vae/ae.safetensors?download=true
+    size: 335MB
   mochi.safetensors:
     url: >-
       https://huggingface.co/Comfy-Org/mochi_preview_repackaged/resolve/main/split_files/vae/mochi_vae.safetensors?download=true
